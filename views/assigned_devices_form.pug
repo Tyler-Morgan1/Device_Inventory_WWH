@@ -11,7 +11,7 @@ block content
         for device in allDevices
             option(value=device._id) #{device.serialNumber} : #{device.manufacturer}
     div.form-group
-      label(for='employee_assigned') Accessory:
+      label(for='employee_assigned') Employee:
       select#employee_assigned.form-control(name='employee_assigned' required)
         option(value='') --Please select an employee--
         for employee in allEmployees
