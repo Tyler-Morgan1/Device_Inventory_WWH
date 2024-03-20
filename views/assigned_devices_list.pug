@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  if assigned_devices_list.length
+    ul
+      each val in assigned_devices_list
+        li
+          a(href=val.url) #{val.device.manufacturer} : #{val.device.serialNumber} : 
+            a(href=val.employee_assigned.url) #{val.employee_assigned.name}
+
+  else
+    p There are no assigned devices in this inventory.

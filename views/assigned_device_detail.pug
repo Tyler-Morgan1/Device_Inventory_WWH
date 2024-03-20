@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  p Device: #{device.name}
+  p Serial Number: #{device.serialNumber}
+  p Manufacturer: #{device.manufacturer}
+
+  p Employee Assigned to: #{employee.name}
+
+  p
+    a(href=assignedDevice.url+'/delete') Delete device assignment
+  p
+    a(href=assignedDevice.url+'/update') Update device assignment

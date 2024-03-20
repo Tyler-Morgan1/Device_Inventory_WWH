@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{accessory.name} : #{accessory.serialNumber} : #{accessory.manufacturer}
+
+  if assigned_employee.length
+
+    p #[strong Delete the following accessory assignments with employee before attempting to delete this accessory.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Employee
+      dl
+        each employee in assigned_employee
+          dt
+            a(href=accessory.url) #{employee.name}
+
+  else
+    p Do you really want to delete this accessory?
+
+    form(method='POST')
+      div.form-group
+        input#accessoryid.form-control(type='hidden', name='accessoryid', value=accessory._id )
+
+      button.btn.btn-primary(type='submit') Delete

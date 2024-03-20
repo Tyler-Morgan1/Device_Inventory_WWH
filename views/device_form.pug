@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  h1 #{title}
+
+  form(method='POST')
+    div.form-group
+      label(for='serialNumber') Device Serial Number:
+      input#serialNumber.form-control(type='text', placeholder='Serial Number' name='serialNumber' required value=(undefined===device ? '' : device.serialNumber) )
+      label(for='manufacturer') Device manufacturer:
+      input#manufacturer.form-control(type='text', placeholder='manufacturer' name='manufacturer' value=(undefined===device ? '' : device.manufacturer) )
+      label(for='name') Device Name:
+      input#name.form-control(type='text', placeholder='name' name='name' value=(undefined===device ? '' : device.name) )
+      label(for='model') Device model:
+      input#model.form-control(type='text', placeholder='model' name='model' value=(undefined===device ? '' : device.model) )
+      label(for='description') Device description:
+      input#description.form-control(type='text', placeholder='description' name='description' value=(undefined===device ? '' : device.description) )
+      label(for='type') Device type:
+      input#type.form-control(type='text', placeholder='type' name='type' value=(undefined===device ? '' : device.type) )
+      label(for='westWindInventoryID') Device westWindInventoryID:
+      input#westWindInventoryID.form-control(type='text', placeholder='westWindInventoryID' name='westWindInventoryID' value=(undefined===device ? '' : device.westWindInventoryID) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
+

@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 #{title}
+
+  form(method='POST')
+    div.form-group
+      label(for='name') Accessory Name:
+      input#name.form-control(type='text', placeholder='name' name='name' required value=(undefined===accessory ? '' : accessory.name) )
+      label(for='serialNumber') Accessory Serial Number:
+      input#serialNumber.form-control(type='text', placeholder='Serial Number' name='serialNumber' value=(undefined===accessory ? '' : accessory.serialNumber) )
+      label(for='manufacturer') Accessory manufacturer:
+      input#manufacturer.form-control(type='text', placeholder='manufacturer' name='manufacturer' value=(undefined===accessory ? '' : accessory.manufacturer) )
+      label(for='model') Accessory model:
+      input#model.form-control(type='text', placeholder='model' name='model' value=(undefined===accessory ? '' : accessory.model) )
+      label(for='description') Accessory description:
+      input#description.form-control(type='text', placeholder='description' name='description' value=(undefined===accessory ? '' : accessory.description) )
+      label(for='type') Accessory type:
+      input#type.form-control(type='text', placeholder='type' name='type' value=(undefined===accessory ? '' : accessory.type) )
+      label(for='westWindInventoryID') Accessory westWindInventoryID:
+      input#westWindInventoryID.form-control(type='text', placeholder='westWindInventoryID' name='westWindInventoryID' value=(undefined===accessory ? '' : accessory.westWindInventoryID) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

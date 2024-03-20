@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  if accessory_list.length
+    ul
+      each accessory in accessory_list
+        li
+          a(href=accessory.url) #{accessory.name}
+          |  (#{accessory.manufacturer})
+
+  else
+    p There are no accessories.

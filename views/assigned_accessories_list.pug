@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  if assigned_accessories_list.length
+    ul
+      each val in assigned_accessories_list
+        li
+          a(href=val.url) #{val.item.name} : #{val.item.manufacturer} :
+            a(href=val.employee_assigned.url) #{val.employee_assigned.name}
+
+  else
+    p There are no assigned accessories in this inventory.

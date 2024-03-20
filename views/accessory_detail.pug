@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+    p Name: #{accessory.name}
+    p Serial Number: #{accessory.serialNumber}
+    p Manufacturer: #{accessory.manufacturer}
+
+    p
+        a(href=accessory.url+'/delete') Delete accessory
+    p
+        a(href=accessory.url+'/update') Update accessory

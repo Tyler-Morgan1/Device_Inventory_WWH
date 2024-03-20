@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  if device_list.length
+    ul
+      each device in device_list
+        li
+          a(href=device.url) #{device.serialNumber}
+          |  (#{device.manufacturer})
+
+  else
+    p There are no devices.

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  if employee_list.length
+    ul
+      each employee in employee_list
+        li
+          a(href=employee.url) #{employee.name}
+          |  (#{employee.position} ; #{employee.department})
+  else
+    p There are no employees.

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  p Accessory: #{accessory.name}
+  p Serial Number: #{accessory.serialNumber}
+  p Manufacturer: #{accessory.manufacturer}
+
+  p Employee Assigned to: #{employee.name}
+
+  p
+    a(href=assignedAccessory.url+'/delete') Delete accessory assignment
+  p
+    a(href=assignedAccessory.url+'/update') Update accessory assignment

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{accessory.name} : #{employee.name}
+
+    p Do you really want to delete this assigned_accessory?
+
+    form(method='POST')
+      div.form-group
+        input#assigned_accessoryid.form-control(type='hidden', name='assigned_accessoryid', value=assigned_accessory._id )
+
+      button.btn.btn-primary(type='submit') Delete

@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    h1 Name: #{employee.name}
+    p Position: #{employee.position}
+    p Department: #{employee.department}
+
+    hr
+    p
+        a(href=employee.url+'/delete') Delete employee
+    p
+        a(href=employee.url+'/update') Update employee

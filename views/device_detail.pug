@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+    p Serial Number: #{device.serialNumber}
+    p Manufacturer: #{device.manufacturer}
+
+    p
+        a(href=device.url+'/delete') Delete device
+    p
+        a(href=device.url+'/update') Update device

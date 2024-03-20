@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST')
+    div.form-group
+      label(for='device') Device:
+      select#device.form-control(name='device' required)
+        option(value='') --Please select a device--
+        for device in allDevices
+            option(value=device._id) #{device.serialNumber} : #{device.manufacturer}
+    div.form-group
+      label(for='employee_assigned') Accessory:
+      select#employee_assigned.form-control(name='employee_assigned' required)
+        option(value='') --Please select an employee--
+        for employee in allEmployees
+            option(value=employee._id) #{employee.name}
+    div.form-group
+      label(for='date_assigned') date_assigned:
+      input#date_assigned.form-control(type='date', placeholder='date_assigned' name='date_assigned' value=(undefined===assignedDevice ? '' : assignedDevice.date_assigned))
+    div.form-group
+      label(for='date_returned') date_returned:
+      input#date_returned.form-control(type='date', placeholder='date_returned' name='date_returned' value=(undefined===assignedDevice ? '' : assignedDevice.date_returned))
+    div.form-group
+      label(for='condition_assigned') condition_assigned:
+      input#condition_assigned.form-control(type='text', placeholder='condition_assigned' name='condition_assigned' value=(undefined===assignedDevice ? '' : assignedDevice.condition_assigned))
+    div.form-group  
+      label(for='condition_returned') condition_returned:
+      input#condition_returned.form-control(type='text', placeholder='condition_returned' name='condition_returned' value=(undefined===assignedDevice ? '' : assignedDevice.condition_returned))
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

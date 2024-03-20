@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Inventory Prototype], an Express web application developed as a basic inventory tracking of devices assigned to employees at Westwind Homes.
+
+  h1 Dynamic content
+
+  p The inventory has the following record counts:
+
+  ul
+    li #[strong Employees:] !{employee_count}
+    li #[strong Devices:] !{device_count}
+    li #[strong Assigned Devices:] !{assigned_devices_count}
+    li #[strong Accessories:] !{accessory_count}
+    li #[strong Assigned Accessories:] !{assigned_accessories_count}

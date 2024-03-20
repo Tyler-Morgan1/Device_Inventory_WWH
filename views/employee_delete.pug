@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{employee.name}
+
+  if assigned_devices.length
+
+    p #[strong Delete the following device assignments before attempting to delete this employee.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Devices
+      dl
+        each device in assigned_devices
+          dt
+            a(href=device.url) #{device.serialNumber} : #{device.manufacturer}
+
+    p #[strong Delete the following accessory assignments before attempting to delete this employee.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Accessories
+      dl
+        each accessory in assigned_accessories
+          dt
+            a(href=accessory.url) #{accessory.name}
+
+  else
+    p Do you really want to delete this Employee?
+
+    form(method='POST')
+      div.form-group
+        input#employeeid.form-control(type='hidden', name='employeeid', value=employee._id )
+
+      button.btn.btn-primary(type='submit') Delete
